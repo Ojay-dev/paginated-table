@@ -38,8 +38,8 @@ async function fetchData(page: number) {
  */
 function renderCurrent() {
   const tableBody: Element | null = document.querySelector('[data-sink]');
-
   const prevBtn = document.querySelector('[data-prevbtn]');
+  const tableLabel = document.querySelector('[data-pageview]');
 
   if (tableBody !== null) {
     tableBody.innerHTML = '';
@@ -61,6 +61,10 @@ function renderCurrent() {
     if (tableBody !== null) {
       tableBody.innerHTML += row;
     }
+  }
+
+  if (tableLabel !== null) {
+    tableLabel.innerHTML = 'Showing Page ' + currentPage;
   }
 
   if (currentPage <= 1) {
